@@ -5,11 +5,11 @@ import React, { useState, useEffect } from "react";
 import { CourseContext } from "../Contexts/CoursesContext";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import CoursePageHeader from "./CoursePage";
-function Home() {
+function Home({ searchVal }) {
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Main searchVal={searchVal} />
     </div>
   );
 }

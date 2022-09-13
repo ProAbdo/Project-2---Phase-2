@@ -2,3 +2,10 @@
   width: 48%;
   margin-left: 120px;
 }
+@media screen and (max-width : 920px) {
+  .page-contianer{
+    width: 100%;
+    margin: 0;
+    padding: 0% 5%;
+  }
+}

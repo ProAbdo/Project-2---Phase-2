@@ -1,6 +1,7 @@
 import React from "react";
 import "../components_styles/nav.css";
-function Nav() {
+import SearchBar from "./SearchBar";
+function Nav({ searchVal, setSearchVal }) {
   return (
     <nav>
       <div className="udemy-logo">
@@ -19,25 +20,7 @@ function Nav() {
           <strong className="txt">Categories</strong>
         </a>
       </div>
-      <div className="search-bar-container">
-        <button
-          className="search-icon-btn"
-          type="submit"
-          onclick="document.querySelector('.courses').scrollIntoView();"
-        >
-          <img
-            className="search-icon"
-            src="../images/icons/search.png"
-            alt=""
-            height="15"
-          />
-        </button>
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Search for anything"
-        />
-      </div>
+      <SearchBar searchVal={searchVal} setSearchVal={setSearchVal} />
       <div className="udemy-business-container">
         <a href="#">
           <span className="txt">Udemy Buisness</span>

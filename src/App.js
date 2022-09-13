@@ -6,10 +6,13 @@ import CoursePage from "./components/CoursePage";
 import { Routes, Route, Link, useParams } from "react-router-dom";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import "../src/App.css";
+import * as objects from "./components/CoursePage";
 function App() {
   const [data, setdata] = useState([]);
   const [summary, setsummary] = useState([]);
   const [review, setreview] = useState([]);
+  const [searchVal, setSearchVal] = useState("");
   useEffect(() => {
     axios.get("http://localhost:8000/summary").then((res) => {
       setsummary(res.data);
@@ -21,13 +24,14 @@ function App() {
       setreview(res.data);
     });
   }, []);
+
   if (summary.length && data.length && review.length) {
     return (
       <>
-        <Nav />
+        <Nav searchVal={searchVal} setSearchVal={setSearchVal} />
         <CourseContext.Provider value={{ data, summary, review }}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home searchVal={searchVal} />} />
             <Route path="/course/:id" element={<CoursePage />} />
           </Routes>
         </CourseContext.Provider>

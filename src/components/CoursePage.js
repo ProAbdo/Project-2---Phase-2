@@ -7,12 +7,13 @@ import CourseContent from "./CourseContent";
 import CourseInfo from "./CourseInfo";
 import Instructors from "./Instructors";
 import Reviews from "./Reviews";
+import SideCard from "./SideCard";
 function CoursePage() {
   const { id } = useParams();
   const { data } = useContext(CourseContext);
   const { summary } = useContext(CourseContext);
   const { review } = useContext(CourseContext);
-  // get the data index of the current course from the fetched data
+  // get the index of the current course from the fetched data
   const getidx = (arr, val) => {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].id == val) return i;
@@ -31,7 +32,9 @@ function CoursePage() {
       StarsArr.push(star);
     }
     if (x != rate)
-      StarsArr.push(`<span className="fa fa-star-half-full checked"> </span> `);
+      StarsArr.push(
+        `<span className="fa fa-star fa-star-half-full checked"> </span> `
+      );
     while (StarsArr.length < 5) {
       StarsArr.push(`<span className="not fa fa-star"> </span>`);
     }
@@ -39,6 +42,7 @@ function CoursePage() {
   };
   return (
     <>
+      <SideCard obj_sum={obj_sum} />
       <CoursePageHeader
         obj_sum={obj_sum}
         obj_data={obj_data}

@@ -1,11 +1,11 @@
 import React from "react";
 import CoursesHeader from "./CoursesHeader";
 import CoursesContainer from "./CoursesContainer";
-function CoursesBox() {
+function CoursesBox({ searchVal }) {
   return (
     <section class="courses">
       <CoursesHeader />
-      <CoursesContainer />
+      <CoursesContainer searchVal={searchVal} />
     </section>
   );
 }

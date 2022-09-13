@@ -8,7 +8,6 @@ function Accordion({ obj_data }) {
     : Math.min(5, obj_data.curriculum_context.data.sections.length);
   const onShowMore = () => {
     setShowMore(!showMore);
-    console.log("clicked");
   };
   return (
     <>

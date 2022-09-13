@@ -3,6 +3,9 @@ footer {
   padding: 1px;
   margin-top: 25px;
 }
+.container-top{
+  margin-left: 5%;
+}
 .foot-title {
   color: white;
   border-bottom: 1px solid gray;
@@ -13,11 +16,11 @@ footer {
   padding-top: 2%;
 }
 .foot-title p {
-  margin-left: 5%;
   display: inline;
+  padding-right: 3%;
 }
 .foot-img {
-  margin-left: 3%;
+  margin-right: 3%;
 }
 .footer-catiogreis {
   display: inline-grid;
@@ -34,4 +37,11 @@ footer {
   padding-top: 2%;
   padding-left: 5%;
   width: 200px;
+}
+@media screen and (max-width :920px) {
+  .footer-catiogreis{
+    grid-template-columns: 1fr 1fr ;
+    padding: 2% 4%;
+    width: 100%;
+  }
 }

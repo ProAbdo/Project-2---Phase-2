@@ -1,6 +1,6 @@
 import React from "react";
 import "../components_styles/SideCard.css";
-function SideCard({ getperc, obj_sum }) {
+function SideCard({ obj_sum }) {
   return (
     <div className="card">
       <img src={obj_sum.image_480x270} class="card-img-top"></img>
@@ -12,13 +12,7 @@ function SideCard({ getperc, obj_sum }) {
           <span className="old-price">
             {obj_sum.price.list_price.price_string}
           </span>
-          <span className="diss-perc">
-            {getperc(
-              obj_sum.price.discount_price.amount,
-              obj_sum.price.list_price.amount
-            )}
-            % off
-          </span>
+          <span className="diss-perc"></span>
         </div>
         <button type="button" className="btn addtocart">
           Add to cart
@@ -41,7 +35,7 @@ function SideCard({ getperc, obj_sum }) {
         <div className="flx">
           <a href="#">Share</a>
           <a href="#">Gift this course</a>
-          <a href="#">apply coupon</a>
+          <a href="#">Apply coupon</a>
         </div>
       </div>
       <div className="cont">

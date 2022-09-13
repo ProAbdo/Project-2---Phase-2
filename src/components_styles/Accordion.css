@@ -15,7 +15,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-right: 12px;
+  flex-wrap: wrap;
+  margin-right: 2%;
 }
 .try1,
 .try2 {

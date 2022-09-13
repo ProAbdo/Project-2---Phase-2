@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { IDContext } from "../Contexts/CourseIDContext";
 import "../components_styles/Main.css";
 import CoursesBox from "./CoursesBox";
-function Main() {
+function Main({ searchVal }) {
   const [id, setid] = useState(0);
   return (
     <main>
@@ -39,7 +39,7 @@ function Main() {
         </ul>
       </section>
       <IDContext.Provider value={{ id }}>
-        <CoursesBox />
+        <CoursesBox searchVal={searchVal} />
       </IDContext.Provider>
     </main>
   );

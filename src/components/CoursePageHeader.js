@@ -4,11 +4,7 @@ import parse from "html-react-parser";
 import SideCard from "./SideCard";
 function CoursePageHeader({ obj_sum, obj_data, CalcRate }) {
   // get the percentage of disscount
-  const getperc = (NewPrice, OldPrice) => {
-    let dif = ((OldPrice - NewPrice) / OldPrice) * 100;
-    dif = Math.ceil(dif);
-    return dif;
-  };
+
   return (
     <>
       <div className="container-fluid page-header ">
@@ -20,6 +16,11 @@ function CoursePageHeader({ obj_sum, obj_data, CalcRate }) {
             <span className="arrow">&#10148;</span>
             <a href="">Python</a>
           </div>
+          <img
+            class="cover_image-hidden"
+            src="https://img-c.udemycdn.com/course/750x422/394676_ce3d_5.jpg"
+            alt="Course img"
+          ></img>
           <h1 className="crstitle">{obj_sum.title}</h1>
           <p className="crsheadline">{obj_sum.headline}</p>
           <div className="rate">
@@ -45,29 +46,41 @@ function CoursePageHeader({ obj_sum, obj_data, CalcRate }) {
 
           <div className="extra-data">
             <span className="lst-update">
-              &#x2755; Last updated {obj_sum.last_update_date}{" "}
+              <i
+                className="fa fa-exclamation-circle "
+                style={{ paddingRight: "10px" }}
+                aria-hidden="true"
+              ></i>{" "}
+              Last updated {obj_sum.last_update_date}{" "}
             </span>
             <span className="lang">
-              <img
-                className="lang-icon"
-                src="../images/icons/lang.png"
-                width={15}
-                height={15}
-              ></img>
+              <i className="fa fa-globe" style={{ paddingRight: "10px" }}></i>
               <span className="lang-txt"> English </span>
             </span>
             <span className="subtitle">
-              <img
-                className="sub-icon"
-                src="../images/icons/sub.png"
-                width={15}
-                height={15}
-              ></img>
+              <i
+                className="fa fa-cc "
+                style={{ paddingRight: "10px" }}
+                aria-hidden="true"
+              ></i>
               <span className="subtitle">English </span>
             </span>
           </div>
         </div>
-        <SideCard getperc={getperc} obj_sum={obj_sum} />
+        <div className="buy-box">
+          <span className="cur-price">
+            {obj_sum.price.discount_price.price_string}
+          </span>
+          <button type="button" className="btn addtocart">
+            Add to cart
+          </button>
+          <div className="gurantee">30-Day-Money-Back gurantee</div>
+          <div className="flx">
+            <a href="#">Share</a>
+            <a href="#">Gift this course</a>
+            <a href="#">Apply coupon</a>
+          </div>
+        </div>
       </div>
     </>
   );
